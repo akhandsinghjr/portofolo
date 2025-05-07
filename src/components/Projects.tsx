@@ -5,18 +5,18 @@ import { Github, ExternalLink, Code2, Server, Database, Layout } from 'lucide-re
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce platform with real-time inventory management, payment integration, and admin dashboard.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    github: 'https://github.com/username/ecommerce',
-    demo: 'https://ecommerce-demo.com',
-    image: 'https://placehold.co/600x400?text=Project+Image'
+    title: 'सह-AI-यक (Sahayak)',
+    description: 'A conversational AI assistant for mental health assessment that analyzes both text and facial expressions to provide supportive responses.',
+    technologies: ['React', 'Next.js', 'TailwindCSS', 'HuggingFace', 'Zephyr', 'Azure AI'],
+    github: 'https://github.com/akhandsinghjr/sahAIyak_HackVita_3.0',
+    demo: 'https://sahaiyak-hackvita-3-0.onrender.com',
+    image: '/sahayak.png'
   },
   {
-    title: 'Task Management System',
-    description: 'A collaborative task management system with real-time updates, team collaboration, and progress tracking.',
-    technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io'],
-    github: 'https://github.com/username/task-manager',
+    title: 'Faculty Recruitment Portal',
+    description: ' A comprehensive multi-paged Faculty Registration Portal that supports CRUD and collects multiple inputs and generates a final PDF summarizing all applicant information',
+    technologies: ['MySql', 'Docker', 'Node.js', 'REST API', 'HTML', 'TailwindCSS'],
+    github: 'https://github.com/akhandsinghjr/2201CS11_CS260',
     demo: 'https://task-manager-demo.com',
     image: 'https://placehold.co/600x400?text=Project+Image'
   },
