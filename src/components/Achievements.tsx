@@ -115,15 +115,21 @@ const otherAchievements = [
   },
   {
     title: 'Microsoft Azure AI Hackathon',
-    description: 'Attained first rank in Microsoft Azure AI Hackathon, and 2nd position in Hackvita 3.0.',
+    description: 'Attained first rank in Microsoft Azure AI Hackathon.',
     date: '2023',
-    image: 'https://placehold.co/400x250?text=Azure+AI+Hackathon'
+    image: '/msf.png'
   },
   {
     title: 'Amazon ML Summer School',
     description: 'Selected among top 3% (3,000 out of 100,000) in Amazon ML Summer School 2024.',
     date: '2024',
     image: 'https://placehold.co/400x250?text=Amazon+ML+School'
+  },
+  {
+    title: 'Hackvita 3.0 Hackathon',
+    description: 'Attained second rank representing IIT Patna in Hackvita 3.0.',
+    date: '2023',
+    image: '/hackvita.png'
   }
 ];
 
@@ -275,18 +281,6 @@ const Achievements = () => {
                   ))}
                 </div>
               </div>
-            </Card>
-            <Card className="p-5 bg-[#24283b] border-[#414868]">
-              Secured a rank of <span className="font-bold text-[#7aa2f7]">2539</span> in JEE Advanced 2022 out of <span className="font-bold">1,60,000</span> students all over India.
-            </Card>
-            <Card className="p-5 bg-[#24283b] border-[#414868]">
-              Ranked in top <span className="font-bold text-[#9ece6a]">0.4%</span> in JEE Mains 2022 out of <span className="font-bold">10,00,000</span> students all over India.
-            </Card>
-            <Card className="p-5 bg-[#24283b] border-[#414868]">
-              Qualified till <span className="font-bold text-[#e0af68]">round 2</span> in Meta Hacker Cup, with a final rank of <span className="font-bold">3636</span>.
-            </Card>
-            <Card className="p-5 bg-[#24283b] border-[#414868]">
-              Attained <span className="font-bold text-[#bb9af7]">first rank</span> in Microsoft Azure AI Hackathon, and <span className="font-bold text-[#f7768e]">2nd position</span> in Hackvita 3.0.
             </Card>
           </div>
           {/* Other Achievements Cards */}

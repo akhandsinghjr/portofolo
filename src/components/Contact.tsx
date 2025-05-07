@@ -13,7 +13,7 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "https://linkedin.com/in/username",
+    url: "image.png",
     color: "#7aa2f7"
   },
   {
