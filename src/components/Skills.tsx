@@ -93,7 +93,7 @@ const Skills = () => {
     <div className="w-full max-w-6xl mx-auto px-4">
       <h2 className="section-heading text-[#a9b1d6] mb-8">
         <span className="text-[#7aa2f7] font-mono">02.</span> Skills
-      </h2>
+        </h2>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ const Skills = () => {
             <div className="h-3 w-3 rounded-full bg-[#f7768e]"></div>
             <div className="h-3 w-3 rounded-full bg-[#e0af68]"></div>
             <div className="h-3 w-3 rounded-full bg-[#9ece6a]"></div>
-          </div>
+                        </div>
           <div className="text-xs text-center flex-1 text-gray-400 font-mono">
             skills@iitpatna: ~/expertise
           </div>
@@ -193,12 +193,12 @@ const Skills = () => {
                       <li>Where I learned it</li>
                       <li>Projects where I've used it</li>
                     </ul>
-                  </div>
-                </div>
-              )}
-            </div>
+                    </div>
+              </div>
+            )}
           </div>
         </div>
+      </div>
       </motion.div>
     </div>
   );
