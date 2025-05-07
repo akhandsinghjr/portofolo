@@ -11,9 +11,9 @@ import {
 
 const navItems = [
   { id: 'about', label: 'About', icon: User },
-  { id: 'skills', label: 'Skills', icon: Code2 },
   { id: 'projects', label: 'Projects', icon: Briefcase },
   { id: 'achievements', label: 'Achievements', icon: Trophy },
+  { id: 'skills', label: 'Skills', icon: Code2 },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
 

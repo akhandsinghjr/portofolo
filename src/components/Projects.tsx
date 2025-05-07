@@ -9,21 +9,24 @@ const projects = [
     description: 'A full-stack e-commerce platform with real-time inventory management, payment integration, and admin dashboard.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     github: 'https://github.com/username/ecommerce',
-    demo: 'https://ecommerce-demo.com'
+    demo: 'https://ecommerce-demo.com',
+    image: 'https://placehold.co/600x400?text=Project+Image'
   },
   {
     title: 'Task Management System',
     description: 'A collaborative task management system with real-time updates, team collaboration, and progress tracking.',
     technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Socket.io'],
     github: 'https://github.com/username/task-manager',
-    demo: 'https://task-manager-demo.com'
+    demo: 'https://task-manager-demo.com',
+    image: 'https://placehold.co/600x400?text=Project+Image'
   },
   {
     title: 'AI-Powered Chat Application',
     description: 'A real-time chat application with AI-powered responses, sentiment analysis, and message encryption.',
     technologies: ['React', 'Python', 'TensorFlow', 'WebSocket'],
     github: 'https://github.com/username/ai-chat',
-    demo: 'https://ai-chat-demo.com'
+    demo: 'https://ai-chat-demo.com',
+    image: 'https://placehold.co/600x400?text=Project+Image'
   }
 ];
 
@@ -31,7 +34,7 @@ const Projects = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <h2 className="section-heading text-[#a9b1d6] mb-8">
-        <span className="text-[#7aa2f7] font-mono">03.</span> Projects
+        <span className="text-[#7aa2f7] font-mono">02.</span> Projects
       </h2>
 
       <motion.div
@@ -63,6 +66,11 @@ const Projects = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <Card className="p-6 bg-[#24283b] border-[#414868] h-full flex flex-col">
+                  <img
+                    src={project.image}
+                    alt={project.title + ' image'}
+                    className="w-full h-40 object-cover rounded-md mb-4 border border-[#414868]"
+                  />
                   <div className="flex items-center gap-3 mb-4">
                     <Code2 className="w-5 h-5 text-[#7aa2f7]" />
                     <h3 className="text-[#7aa2f7] font-semibold">{project.title}</h3>

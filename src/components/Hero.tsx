@@ -7,6 +7,16 @@ const Hero = () => {
   const [isComplete, setIsComplete] = useState(false);
   
   // Terminal text content with type information for styling
+  const skillsTable = `+---------------------+-----------------------------+
+| Category            | Skills                      |
++---------------------+-----------------------------+
+| Programming         | C++, Java, Python, JS, TS   |
+| Web Development     | React, Next.js, Node.js     |
+| Databases           | MongoDB, PostgreSQL, Redis  |
+| DevOps & Tools      | Git, Docker, AWS, Linux     |
+| System Design       | Microservices, REST APIs    |
++---------------------+-----------------------------+`;
+
   const terminalContent = [
     { type: 'system', content: 'Welcome to Akhand\'s Portfolio Terminal v1.0.0' },
     { type: 'system', content: 'Initializing system...' },
@@ -14,14 +24,8 @@ const Hero = () => {
     { type: 'output', content: 'akhand@iitpatna' },
     { type: 'command', content: '$ echo $USER' },
     { type: 'output', content: 'CSE Student @ IIT Patna' },
-    { type: 'command', content: '$ ls -la skills/' },
-    { type: 'output', content: 'drwxr-xr-x  C++' },
-    { type: 'output', content: 'drwxr-xr-x  Java' },
-    { type: 'output', content: 'drwxr-xr-x  Python' },
-    { type: 'output', content: 'drwxr-xr-x  JavaScript' },
-    { type: 'output', content: 'drwxr-xr-x  TypeScript' },
-    { type: 'output', content: 'drwxr-xr-x  React' },
-    { type: 'output', content: 'drwxr-xr-x  Node.js' },
+    { type: 'command', content: '$ cat skills.txt' },
+    { type: 'pre', content: skillsTable },
     { type: 'command', content: '$ cat about.txt' },
     { type: 'output', content: 'Passionate about building innovative tech solutions...' },
     { type: 'output', content: 'Focused on full-stack development and system design...' },
@@ -72,6 +76,8 @@ const Hero = () => {
         return 'text-green-400';
       case 'system':
         return 'text-blue-400';
+      case 'pre':
+        return 'text-gray-300';
       default:
         return 'text-gray-300';
     }
@@ -100,12 +106,16 @@ const Hero = () => {
           <div className="p-4 font-mono text-sm md:text-base text-gray-300 min-h-[500px] flex flex-col bg-[#1a1b26]">
             <div className="flex-grow space-y-1">
               {terminalLines.map((line, index) => (
-                <div key={index} className={`${getLineStyle(line, index)} transition-colors duration-200`}>
-                  {terminalContent[index]?.type === 'command' && (
-                    <span className="text-green-400 mr-2">$</span>
-                  )}
-                  {line}
-                </div>
+                terminalContent[index]?.type === 'pre' ? (
+                  <pre key={index} className="text-gray-300 text-xs md:text-sm leading-tight my-2">{line}</pre>
+                ) : (
+                  <div key={index} className={`${getLineStyle(line, index)} transition-colors duration-200`}>
+                    {terminalContent[index]?.type === 'command' && (
+                      <span className="text-green-400 mr-2">$</span>
+                    )}
+                    {line}
+                  </div>
+                )
               ))}
               {currentLine < terminalContent.length && (
                 <div className="inline-flex items-center">

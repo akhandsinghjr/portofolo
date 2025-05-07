@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
-import { User, GraduationCap, Code2, Briefcase } from 'lucide-react';
+import { User, GraduationCap, Code2, Briefcase, BookOpen } from 'lucide-react';
 
 const About = () => {
   return (
@@ -31,8 +31,8 @@ const About = () => {
         {/* Content */}
         <div className="p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Text Content */}
-            <div className="space-y-6">
+            <div className="flex flex-col gap-8">
+              {/* Text Content */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ const About = () => {
                   <div>
                     <h3 className="text-[#7aa2f7] font-semibold">Education</h3>
                     <p className="text-[#a9b1d6]">B.Tech in Computer Science and Engineering</p>
-                    <p className="text-[#565f89] text-sm">Indian Institute of Technology Patna</p>
+                    <p className="text-[#565f89] text-sm">Indian Institute of Technology Patna | 22-26</p>
                   </div>
                 </div>
 
@@ -64,7 +64,11 @@ const About = () => {
                   <Code2 className="w-5 h-5 text-[#7aa2f7] mt-1" />
                   <div>
                     <h3 className="text-[#7aa2f7] font-semibold">Technical Focus</h3>
-                    <p className="text-[#a9b1d6]">Full-stack Development, System Design, Competitive Programming</p>
+                    <div className="flex flex-wrap gap-2 mt-1">
+                      {['Artificial Intelligence', 'Machine Learning', 'Computer Networks', 'Full-stack Development'].map((skill) => (
+                        <span key={skill} className="px-3 py-1 bg-[#1a1b26] text-[#a9b1d6] rounded-full text-xs border border-[#414868]">{skill}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
@@ -72,44 +76,20 @@ const About = () => {
                   <Briefcase className="w-5 h-5 text-[#7aa2f7] mt-1" />
                   <div>
                     <h3 className="text-[#7aa2f7] font-semibold">Experience</h3>
-                    <p className="text-[#a9b1d6]">Software Development Intern at TechCorp</p>
-                    <p className="text-[#565f89] text-sm">Summer 2023</p>
+                    <p className="text-[#a9b1d6]">Software Engineering Intern at Cisco</p>
+                    <p className="text-[#565f89] text-sm">Summer 2025</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <Briefcase className="w-5 h-5 text-[#7aa2f7] mt-1" />
+                  <div>
+                    <h3 className="text-[#7aa2f7] font-semibold">Publications</h3>
+                    <p className="text-[#a9b1d6]">OCUS: A Game-Theoretic Approach to Optimal UAV Coalitions</p>
+                    <p className="text-[#565f89] text-sm">Jul 2024 – Dec 2024</p>
                   </div>
                 </div>
               </motion.div>
-
-              {/* LeetCode Card */}
-              <Card className="mb-6 bg-[#24283b] border-[#414868] p-5 flex flex-col gap-3">
-                <div className="flex items-center gap-3 mb-2">
-                  <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode" className="w-7 h-7 rounded" />
-                  <span className="text-[#f7c873] font-semibold text-lg">LeetCode Stats</span>
-                </div>
-                <div className="flex flex-wrap gap-6 text-[#a9b1d6] text-sm">
-                  <div>
-                    <span className="block text-xs text-[#565f89]">Rating</span>
-                    <span className="font-bold text-lg text-[#7aa2f7]">1,823</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs text-[#565f89]">Top Percentile</span>
-                    <span className="font-bold text-lg text-[#9ece6a]">6.78%</span>
-                  </div>
-                  <div>
-                    <span className="block text-xs text-[#565f89]">Problems Solved</span>
-                    <span className="font-bold text-lg text-[#f7768e]">453</span>
-                  </div>
-                </div>
-                <a
-                  href="https://leetcode.com/u/akhandsinghjx/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-2 text-[#7aa2f7] hover:text-[#9ece6a] text-sm font-mono underline"
-                >
-                  View LeetCode Profile
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75V17.25M17.25 6.75H6.75M17.25 6.75L6.75 17.25" />
-                  </svg>
-                </a>
-              </Card>
             </div>
 
             {/* Image */}
@@ -117,10 +97,10 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 }}
-              className="relative group"
+              className="relative flex items-center justify-center h-full"
             >
-              <Card className="overflow-hidden bg-[#24283b] border-[#414868] transition-all duration-300 group-hover:border-[#7aa2f7]/50 group-hover:shadow-[0_0_30px_rgba(122,162,247,0.2)]">
-                <div className="relative">
+              <Card className="overflow-hidden bg-[#24283b] border-[#414868] transition-all duration-300 group-hover:border-[#7aa2f7]/50 group-hover:shadow-[0_0_30px_rgba(122,162,247,0.2)] h-full w-full">
+                <div className="relative h-full w-full">
                   <img
                     src="/1720381456833.jpg"
                     alt="Profile"

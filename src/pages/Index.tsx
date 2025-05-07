@@ -18,14 +18,14 @@ const Index = () => {
         <section id="about" className="min-h-screen flex items-center justify-center py-16">
           <About />
         </section>
-        <section id="skills" className="min-h-screen flex items-center justify-center py-16">
-          <Skills />
-        </section>
         <section id="projects" className="min-h-screen flex items-center justify-center py-16">
           <Projects />
         </section>
         <section id="achievements" className="min-h-screen flex items-center justify-center py-16">
           <Achievements />
+        </section>
+        <section id="skills" className="min-h-screen flex items-center justify-center py-16">
+          <Skills />
         </section>
         <section id="contact" className="min-h-screen flex items-center justify-center py-16">
           <Contact />

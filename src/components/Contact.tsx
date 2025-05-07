@@ -49,7 +49,7 @@ const Contact = () => {
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <h2 className="section-heading text-[#a9b1d6] mb-8">
-        <span className="text-[#7aa2f7] font-mono">04.</span> Contact
+        <span className="text-[#7aa2f7] font-mono">05.</span> Contact
       </h2>
 
       <motion.div
