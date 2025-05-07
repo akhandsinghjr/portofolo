@@ -96,40 +96,58 @@ const solvedProblemsPie = [
 
 const otherAchievements = [
   {
-    title: 'JEE Advanced 2022',
-    description: 'Secured a rank of 2539 out of 1,60,000 students all over India.',
-    date: '2022',
-    image: 'https://placehold.co/400x250?text=JEE+Advanced'
+    title: 'Microsoft Azure AI Hackathon',
+    description: 'Attained first rank in Microsoft Azure AI Hackathon.',
+    date: '2025',
+    image: '/msf.png'
   },
   {
-    title: 'JEE Mains 2022',
-    description: 'Ranked in top 0.4% out of 10,00,000 students all over India.',
-    date: '2022',
-    image: 'https://placehold.co/400x250?text=JEE+Mains'
+    title: 'Hackvita 3.0 Hackathon',
+    description: 'Attained second rank representing IIT Patna in Hackvita 3.0.',
+    date: '2025',
+    image: '/hackvita.png'
+  },
+  {
+    title: 'Paper on UAV',
+    description: 'OCUS: A Game-Theoretic Approach to Optimal UAV Coalitions ',
+    date: '2025',
+    image: '/OCUS.png'
   },
   {
     title: 'Meta Hacker Cup',
     description: 'Qualified till round 2, final rank of 3636.',
-    date: '2023',
-    image: 'https://placehold.co/400x250?text=Meta+Hacker+Cup'
-  },
-  {
-    title: 'Microsoft Azure AI Hackathon',
-    description: 'Attained first rank in Microsoft Azure AI Hackathon.',
-    date: '2023',
-    image: '/msf.png'
+    date: '2024',
+    image: '/meta.png'
   },
   {
     title: 'Amazon ML Summer School',
     description: 'Selected among top 3% (3,000 out of 100,000) in Amazon ML Summer School 2024.',
     date: '2024',
-    image: 'https://placehold.co/400x250?text=Amazon+ML+School'
+    image: '/amazon.png'
   },
   {
-    title: 'Hackvita 3.0 Hackathon',
-    description: 'Attained second rank representing IIT Patna in Hackvita 3.0.',
-    date: '2023',
-    image: '/hackvita.png'
+    title: 'Adobe Gensolve',
+    description: 'Ranked among the top 5 percentile of 1,00,000+ students.',
+    date: '2024',
+    image: '/adobe.png'
+  },
+  {
+    title: '3 Star on CodeChef',
+    description: 'Achieved a top rating of 1715 (3 Star) on CodeChef.',
+    date: '2024',
+    image: '/codechef.png'
+  },
+  {
+    title: 'JEE Advanced 2022',
+    description: 'Secured a rank of 2539 out of 1,60,000 students all over India.',
+    date: '2022',
+    image: '/jee.png'
+  },
+  {
+    title: 'JEE Mains 2022',
+    description: 'Ranked in top 0.4% out of 10,00,000 students all over India.',
+    date: '2022',
+    image: '/jee.png'
   }
 ];
 

@@ -7,19 +7,19 @@ const socialLinks = [
   {
     name: "GitHub",
     icon: Github,
-    url: "https://github.com/username",
+    url: "https://github.com/akhandsinghjr",
     color: "#9ece6a"
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    url: "image.png",
+    url: "https://www.linkedin.com/in/asjx",
     color: "#7aa2f7"
   },
   {
     name: "Twitter",
     icon: Twitter,
-    url: "https://twitter.com/username",
+    url: "https://twitter.com/akhandjr",
     color: "#f7768e"
   }
 ];
@@ -28,19 +28,19 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "contact@example.com",
+    value: "2201cs11_akhand@iitp.ac.in",
     color: "#7aa2f7"
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
+    value: "+91 700761649?",
     color: "#9ece6a"
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "Patna, Bihar, India",
+    value: "Varanasi, Uttar Pradesh, India",
     color: "#f7768e"
   }
 ];
