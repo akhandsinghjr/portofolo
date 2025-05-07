@@ -6,7 +6,8 @@ import {
   Briefcase, 
   Trophy, 
   Mail,
-  ChevronRight
+  ChevronRight,
+  FileText
 } from 'lucide-react';
 
 const navItems = [
@@ -20,6 +21,7 @@ const navItems = [
 const SideNav = () => {
   const [activeSection, setActiveSection] = React.useState('about');
   const [hoveredItem, setHoveredItem] = React.useState<string | null>(null);
+  const [isGlitching, setIsGlitching] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +41,15 @@ const SideNav = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  React.useEffect(() => {
+    const glitchInterval = setInterval(() => {
+      setIsGlitching(true);
+      setTimeout(() => setIsGlitching(false), 300); // Glitch duration
+    }, 3000); // Trigger every 5 seconds
+
+    return () => clearInterval(glitchInterval);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -46,8 +57,49 @@ const SideNav = () => {
     }
   };
 
+  const handleResumeClick = () => {
+    // Replace with your actual resume URL
+    window.open('https://drive.google.com/file/d/1SQZuBA4qkfb2cNEjMTrrKNZQbej8qNSo/view?usp=sharing', '_blank');
+  };
+
   return (
     <>
+      {/* Resume Button */}
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="fixed top-4 right-4 z-50"
+      >
+        <motion.button
+          onClick={handleResumeClick}
+          className={`relative flex items-center gap-3 px-6 py-3 bg-black/80 backdrop-blur-lg rounded-full border border-gray-800 text-green-400 hover:bg-black/50 transition-all duration-300 ${
+            isGlitching ? 'glitch-effect' : ''
+          }`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className="relative">
+            <FileText className="w-5 h-5" />
+            {isGlitching && (
+              <>
+                <div className="absolute inset-0 glitch-layer-1" />
+                <div className="absolute inset-0 glitch-layer-2" />
+              </>
+            )}
+          </div>
+          <span className="text-base font-medium relative">
+            Resume
+            {isGlitching && (
+              <>
+                <div className="absolute inset-0 glitch-layer-1" />
+                <div className="absolute inset-0 glitch-layer-2" />
+              </>
+            )}
+          </span>
+        </motion.button>
+      </motion.div>
+
       {/* Desktop Navigation */}
       <motion.nav
         initial={{ x: -100, opacity: 0 }}
@@ -166,4 +218,49 @@ const SideNav = () => {
   );
 };
 
-export default SideNav; 
+export default SideNav;
+
+const styles = `
+  @keyframes glitch {
+    0% {
+      transform: translate(0);
+    }
+    20% {
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      transform: translate(-2px, -2px);
+    }
+    60% {
+      transform: translate(2px, 2px);
+    }
+    80% {
+      transform: translate(2px, -2px);
+    }
+    100% {
+      transform: translate(0);
+    }
+  }
+
+  .glitch-effect {
+    animation: glitch 0.2s linear;
+  }
+
+  .glitch-layer-1 {
+    background: rgba(255, 0, 0, 0.1);
+    animation: glitch 0.2s linear;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+  }
+
+  .glitch-layer-2 {
+    background: rgba(0, 255, 255, 0.1);
+    animation: glitch 0.2s linear reverse;
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+  }
+`;
+
+if (typeof document !== 'undefined') {
+  const styleSheet = document.createElement('style');
+  styleSheet.textContent = styles;
+  document.head.appendChild(styleSheet);
+} 
