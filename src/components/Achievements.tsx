@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { Trophy, Code2, Target, Star, TrendingUp, CheckCircle } from 'lucide-react';
@@ -94,7 +94,42 @@ const solvedProblemsPie = [
   { name: 'Hard', value: 250, color: '#f7768e' },
 ];
 
+const otherAchievements = [
+  {
+    title: 'JEE Advanced 2022',
+    description: 'Secured a rank of 2539 out of 1,60,000 students all over India.',
+    date: '2022',
+    image: 'https://placehold.co/400x250?text=JEE+Advanced'
+  },
+  {
+    title: 'JEE Mains 2022',
+    description: 'Ranked in top 0.4% out of 10,00,000 students all over India.',
+    date: '2022',
+    image: 'https://placehold.co/400x250?text=JEE+Mains'
+  },
+  {
+    title: 'Meta Hacker Cup',
+    description: 'Qualified till round 2, final rank of 3636.',
+    date: '2023',
+    image: 'https://placehold.co/400x250?text=Meta+Hacker+Cup'
+  },
+  {
+    title: 'Microsoft Azure AI Hackathon',
+    description: 'Attained first rank in Microsoft Azure AI Hackathon, and 2nd position in Hackvita 3.0.',
+    date: '2023',
+    image: 'https://placehold.co/400x250?text=Azure+AI+Hackathon'
+  },
+  {
+    title: 'Amazon ML Summer School',
+    description: 'Selected among top 3% (3,000 out of 100,000) in Amazon ML Summer School 2024.',
+    date: '2024',
+    image: 'https://placehold.co/400x250?text=Amazon+ML+School'
+  }
+];
+
 const Achievements = () => {
+  const [modalImage, setModalImage] = useState<string | null>(null);
+
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <h2 className="section-heading text-[#a9b1d6] mb-8">
@@ -254,8 +289,39 @@ const Achievements = () => {
               Attained <span className="font-bold text-[#bb9af7]">first rank</span> in Microsoft Azure AI Hackathon, and <span className="font-bold text-[#f7768e]">2nd position</span> in Hackvita 3.0.
             </Card>
           </div>
+          {/* Other Achievements Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {otherAchievements.map((ach, idx) => (
+              <div key={idx} className="bg-[#24283b] border border-[#414868] rounded-lg shadow-lg overflow-hidden flex flex-col">
+                <button
+                  className="focus:outline-none"
+                  onClick={() => setModalImage(ach.image)}
+                  tabIndex={0}
+                  aria-label={`View image for ${ach.title}`}
+                >
+                  <img
+                    src={ach.image}
+                    alt={ach.title}
+                    className="w-full h-40 object-cover hover:scale-105 transition-transform duration-200"
+                  />
+                </button>
+                <div className="p-4 flex flex-col flex-1">
+                  <div className="text-xs text-[#565f89] mb-1">{ach.date}</div>
+                  <div className="font-semibold text-[#a9b1d6] mb-1">{ach.title}</div>
+                  <div className="text-[#a9b1d6] text-sm flex-1">{ach.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
+
+      {/* Modal for image preview */}
+      {modalImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80" onClick={() => setModalImage(null)}>
+          <img src={modalImage} alt="Achievement" className="max-w-full max-h-[80vh] rounded-lg shadow-2xl border-4 border-[#414868]" />
+        </div>
+      )}
     </div>
   );
 };

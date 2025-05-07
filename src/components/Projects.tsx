@@ -15,18 +15,18 @@ const projects = [
   {
     title: 'Faculty Recruitment Portal',
     description: ' A comprehensive multi-paged Faculty Registration Portal that supports CRUD and collects multiple inputs and generates a final PDF summarizing all applicant information',
-    technologies: ['MySql', 'Docker', 'Node.js', 'REST API', 'HTML', 'TailwindCSS'],
+    technologies: ['MySql', 'Docker', 'Node.js', 'Express.js', 'HTML', 'TailwindCSS'],
     github: 'https://github.com/akhandsinghjr/2201CS11_CS260',
-    demo: 'https://task-manager-demo.com',
-    image: 'https://placehold.co/600x400?text=Project+Image'
+    demo: 'https://iitpfacultyrecruitment.onrender.com/login',
+    image: '/fac.png'
   },
   {
-    title: 'AI-Powered Chat Application',
-    description: 'A real-time chat application with AI-powered responses, sentiment analysis, and message encryption.',
-    technologies: ['React', 'Python', 'TensorFlow', 'WebSocket'],
-    github: 'https://github.com/username/ai-chat',
-    demo: 'https://ai-chat-demo.com',
-    image: 'https://placehold.co/600x400?text=Project+Image'
+    title: 'Moondream Computer Vision',
+    description: 'A Moondream Computer Vision dashboard that allows users to detect, caption and ask questions about uploaded images.',
+    technologies: ['Streamlit', 'Python', 'Moondream API', 'RESTfull APIs'],
+    github: 'https://github.com/akhandsinghjr/moonlight_app',
+    demo: 'https://akhandlight.streamlit.app',
+    image: '/moon.png',
   }
 ];
 
