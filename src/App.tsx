@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import TerminalShortcut from './components/TerminalShortcut';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <TerminalShortcut />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

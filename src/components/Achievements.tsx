@@ -154,6 +154,39 @@ const otherAchievements = [
 const Achievements = () => {
   const [modalImage, setModalImage] = useState<string | null>(null);
 
+  const publications = [
+    {
+      title: "OCUS: A Game-Theoretic Approach to Optimal UAV Coalitions in UAV-as-a-Service Platforms",
+      authors: "Prince Kumar, Akhand Pratap Narayan Singh, Anchal Dubey, Farid Nait-Abdesselam, Arijit Roy",
+      venue: "Ad Hoc Networks",
+      date: "September 18, 2025",
+      link: "https://www.sciencedirect.com/science/article/abs/pii/S1570870525002781", // Replace with actual DOI/link when available
+      description: "This paper presents OCUS, an optimal coalition formation scheme designed to enhance UAV-as-a-Service (UaaS) platforms for IoT applications. We employ a coalition game-theoretic approach where each UAV acts as a player. The scheme uses a payoff-driven method, leveraging Nash Equilibrium (NE) principles to ensure stable coalitions.",
+      highlights: [
+        "25–30% more stable coalitions vs state-of-the-art methods",
+        "Higher task completion rates",
+        "Minimized energy consumption"
+      ],
+      images: [
+        {
+          src: "/res1.png", // Replace with actual image paths
+          alt: "Coalition Stability Comparison",
+          caption: "Coalition Nash equilibrium achieved via multiple strategies."
+        },
+        {
+          src: "/res2.png",
+          alt: "Task Completion Rate",
+          caption: "Coalition formation time"
+        },
+        {
+          src: "/res3.png",
+          alt: "Energy Consumption Analysis",
+          caption: "Comparison of Coalition Formation Score of OCUS with other benchmark schemes."
+        }
+      ]
+    }
+  ];
+
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
       <h2 className="section-heading text-[#a9b1d6] mb-8">
@@ -301,6 +334,98 @@ const Achievements = () => {
               </div>
             </Card>
           </div>
+          {/* Publications Subsection */}
+          <motion.div
+            className="mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+          >
+            <h3 className="text-2xl font-semibold text-green-400 mb-6 flex items-center gap-2">
+              <span>📚</span> Publications
+            </h3>
+            <div className="space-y-4">
+              {publications.map((pub, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-[#1a1b26] border border-[#414868] rounded-lg p-6 hover:border-green-400 transition-colors"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <h4 className="text-xl font-semibold text-white mb-2">{pub.title}</h4>
+                  <p className="text-gray-400 text-sm mb-2">{pub.authors}</p>
+                  <p className="text-green-400 text-sm mb-3">{pub.venue}</p>
+                  <p className="text-gray-300 mb-4">{pub.description}</p>
+                  {/* Key Highlights */}
+                  <div className="mb-4">
+                    <h5 className="text-sm font-semibold text-green-400 mb-2">Key Highlights:</h5>
+                    <ul className="list-disc list-inside space-y-1">
+                      {pub.highlights.map((highlight, idx) => (
+                        <li key={idx} className="text-gray-400 text-sm flex items-start gap-2">
+                          <span className="text-green-400 mt-1">▸</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {/* Research Results Images */}
+                  {pub.images && pub.images.length > 0 && (
+                    <div className="mb-6">
+                      <h5 className="text-sm font-semibold text-green-400 mb-4">Research Results:</h5>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {pub.images.map((img, imgIdx) => (
+                          <motion.div
+                            key={imgIdx}
+                            className="bg-[#24283b] rounded-lg overflow-hidden border border-[#414868] hover:border-green-400 transition-all duration-300"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 * imgIdx }}
+                            whileHover={{ scale: 1.02 }}
+                          >
+                            <div className="aspect-video bg-gray-800 flex items-center justify-center">
+                              <img
+                                src={img.src}
+                                alt={img.alt}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  // Fallback if image doesn't load
+                                  e.currentTarget.style.display = 'none';
+                                  e.currentTarget.parentElement!.innerHTML = `
+                                    <div class="flex flex-col items-center justify-center text-gray-500 p-4">
+                                      <svg class="w-12 h-12 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                      </svg>
+                                      <span class="text-xs">Image not available</span>
+                                    </div>
+                                  `;
+                                }}
+                              />
+                            </div>
+                            <div className="p-3">
+                              <p className="text-xs text-gray-400 text-center">{img.caption}</p>
+                            </div>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                  <a
+                    href={pub.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors group"
+                  >
+                    <span>View Publication</span>
+                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  </a>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
           {/* Other Achievements Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {otherAchievements.map((ach, idx) => (
