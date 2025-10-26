@@ -13,8 +13,8 @@ const TerminalShortcut = () => {
 
   const commands = [
     { name: 'cd about', description: 'Navigate to About section' },
+    { name: 'cd experience', description: 'Navigate to Experience section' },
     { name: 'cd projects', description: 'Navigate to Projects section' },
-    { name: 'cd skills', description: 'Navigate to Skills section' },
     { name: 'cd contact', description: 'Navigate to Contact section' },
     { name: 'ls', description: 'List available sections' },
     { name: 'help', description: 'Show available commands' },
@@ -89,8 +89,8 @@ const TerminalShortcut = () => {
       const section = trimmedCmd.slice(3).trim();
       const sectionMap: { [key: string]: string } = {
         'about': 'about',
+        'experience': 'experience',
         'projects': 'projects',
-        'skills': 'skills',
         'contact': 'contact'
       };
 

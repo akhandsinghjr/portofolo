@@ -2,19 +2,19 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   User, 
-  Code2, 
   Briefcase, 
   Trophy, 
   Mail,
   ChevronRight,
-  FileText
+  FileText,
+  Laptop
 } from 'lucide-react';
 
 const navItems = [
   { id: 'about', label: 'About', icon: User },
+  { id: 'experience', label: 'Experience', icon: Laptop },
   { id: 'projects', label: 'Projects', icon: Briefcase },
   { id: 'achievements', label: 'Achievements', icon: Trophy },
-  { id: 'skills', label: 'Skills', icon: Code2 },
   { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
@@ -105,9 +105,10 @@ const SideNav = () => {
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="fixed left-8 top-[40%] -translate-y-1/2 z-50 hidden md:block"
+        className="fixed left-8 top-[40%] -translate-y-1/2 z-50 hidden md:flex flex-col gap-4"
       >
-        <div className="flex flex-col gap-4">
+        {/* Navigation Items */}
+        <div className="flex flex-col gap-4 mb-8">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeSection === item.id;
@@ -172,6 +173,18 @@ const SideNav = () => {
             );
           })}
         </div>
+
+        {/* Terminal Typography Vertical */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="border-t border-gray-800 pt-4 mt-4"
+        >
+          <div className="text-green-400 font-mono text-sm whitespace-nowrap writing-mode-vertical-rl rotate-180">
+            akhand@tech
+          </div>
+        </motion.div>
       </motion.nav>
 
       {/* Mobile Bottom Navigation */}
@@ -257,10 +270,15 @@ const styles = `
     animation: glitch 0.2s linear reverse;
     clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
   }
+
+  .writing-mode-vertical-rl {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
 `;
 
 if (typeof document !== 'undefined') {
   const styleSheet = document.createElement('style');
   styleSheet.textContent = styles;
   document.head.appendChild(styleSheet);
-} 
+}

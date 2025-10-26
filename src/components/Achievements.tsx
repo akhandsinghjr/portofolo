@@ -131,12 +131,12 @@ const otherAchievements = [
     date: '2024',
     image: '/adobe.png'
   },
-  {
-    title: '3 Star on CodeChef',
-    description: 'Achieved a top rating of 1715 (3 Star) on CodeChef.',
-    date: '2024',
-    image: '/codechef.png'
-  },
+  // {
+  //   title: '3 Star on CodeChef',
+  //   description: 'Achieved a top rating of 1715 (3 Star) on CodeChef.',
+  //   date: '2024',
+  //   image: '/codechef.png'
+  // },
   {
     title: 'JEE Advanced 2022',
     description: 'Secured a rank of 2539 out of 1,60,000 students all over India.',
@@ -342,14 +342,22 @@ const Achievements = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <h3 className="text-2xl font-semibold text-green-400 mb-6 flex items-center gap-2">
-              <span>📚</span> Publications
+            <h3 className="text-2xl font-semibold text-[#FF6C00] mb-6 flex items-center gap-3">
+              <img 
+                src="/elseiver-logo.jpg" 
+                alt="Elsevier" 
+                className="w-8 h-8 object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+              <span>Publications</span>
             </h3>
             <div className="space-y-4">
               {publications.map((pub, index) => (
                 <motion.div
                   key={index}
-                  className="bg-[#1a1b26] border border-[#414868] rounded-lg p-6 hover:border-green-400 transition-colors"
+                  className="bg-[#1a1b26] border border-[#414868] rounded-lg p-6 hover:border-[#FF6C00] transition-all duration-300 hover:shadow-lg hover:shadow-[#FF6C00]/20"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
@@ -357,15 +365,25 @@ const Achievements = () => {
                 >
                   <h4 className="text-xl font-semibold text-white mb-2">{pub.title}</h4>
                   <p className="text-gray-400 text-sm mb-2">{pub.authors}</p>
-                  <p className="text-green-400 text-sm mb-3">{pub.venue}</p>
+                  <div className="flex items-center gap-2 mb-3">
+                    <img 
+                      src="/elsevier-logo.png" 
+                      alt="Elsevier" 
+                      className="w-5 h-5 object-contain"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                    <p className="text-[#FF6C00] text-sm font-medium">{pub.venue} • {pub.date}</p>
+                  </div>
                   <p className="text-gray-300 mb-4">{pub.description}</p>
                   {/* Key Highlights */}
                   <div className="mb-4">
-                    <h5 className="text-sm font-semibold text-green-400 mb-2">Key Highlights:</h5>
+                    <h5 className="text-sm font-semibold text-[#FF6C00] mb-2">Key Highlights:</h5>
                     <ul className="list-disc list-inside space-y-1">
                       {pub.highlights.map((highlight, idx) => (
                         <li key={idx} className="text-gray-400 text-sm flex items-start gap-2">
-                          <span className="text-green-400 mt-1">▸</span>
+                          <span className="text-[#FF6C00] mt-1">▸</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -374,12 +392,12 @@ const Achievements = () => {
                   {/* Research Results Images */}
                   {pub.images && pub.images.length > 0 && (
                     <div className="mb-6">
-                      <h5 className="text-sm font-semibold text-green-400 mb-4">Research Results:</h5>
+                      <h5 className="text-sm font-semibold text-[#FF6C00] mb-4">Research Results:</h5>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {pub.images.map((img, imgIdx) => (
                           <motion.div
                             key={imgIdx}
-                            className="bg-[#24283b] rounded-lg overflow-hidden border border-[#414868] hover:border-green-400 transition-all duration-300"
+                            className="bg-[#24283b] rounded-lg overflow-hidden border border-[#414868] hover:border-[#FF6C00] transition-all duration-300"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -417,7 +435,7 @@ const Achievements = () => {
                     href={pub.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors group"
+                    className="inline-flex items-center gap-2 text-[#FF6C00] hover:text-[#ff8533] text-sm font-medium transition-colors group"
                   >
                     <span>View Publication</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>

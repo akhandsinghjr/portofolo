@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import About from "../components/About";
+import Experience from "../components/Experience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Achievements from "../components/Achievements";
@@ -18,15 +19,18 @@ const Index = () => {
         <section id="about" className="min-h-screen flex items-center justify-center py-16">
           <About />
         </section>
+        <section id="experience" className="min-h-screen flex items-center justify-center py-16">
+          <Experience />
+        </section>
         <section id="projects" className="min-h-screen flex items-center justify-center py-16">
           <Projects />
         </section>
         <section id="achievements" className="min-h-screen flex items-center justify-center py-16">
           <Achievements />
         </section>
-        <section id="skills" className="min-h-screen flex items-center justify-center py-16">
+        {/* <section id="skills" className="min-h-screen flex items-center justify-center py-16">
           <Skills />
-        </section>
+        </section> */}
         <section id="contact" className="min-h-screen flex items-center justify-center py-16">
           <Contact />
         </section>
